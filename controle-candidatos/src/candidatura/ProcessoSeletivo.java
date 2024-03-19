@@ -1,18 +1,28 @@
 package candidatura;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class ProcessoSeletivo {
     public static void main(String[] args) {
-         Scanner sc = new Scanner(System.in);
-        imprimirSelecionados();
+        String [] candidatos = {"Antonio", "Jose", "Marcia","Monica", "Pablo"};
 
+        for(String candidato: candidatos){
+
+        }
+    }
+    //Método auxiliar
+    static boolean atender(){
+        /*Ele simula através de uma expressão randômica que se o valor for entre 1 e 3 for igual a 1
+        quer dizer que ele atendeu. Caso ele não tenha atendido, ficará forçando a tentativa de discagem*/
+        return new Random().nextInt(3)==1;
     }
     static void imprimirSelecionados(){
         String [] candidatos = {"Antonio", "Jose", "Marcia","Monica", "Pablo"};
         System.out.println("Imprimindo a lista de candidatos informando o índice do elemento");
 
         for (int indice=0; indice < candidatos.length; indice++){
+
             System.out.println("O candidato de número " + (indice+1) + " é o " + candidatos[indice]);
         }
         System.out.println("Forma abreviada de iteração for each");
