@@ -8,7 +8,35 @@ public class ProcessoSeletivo {
         String [] candidatos = {"Antonio", "Jose", "Marcia","Monica", "Pablo"};
 
         for(String candidato: candidatos){
+            entrandoEmContato(candidato);
+        }
+    }
+    static void entrandoEmContato(String candidato){
+        int tentativasRealizadas = 1;
+        boolean continuarTentando = true;
+        boolean atendeu = false;
 
+        /*Será usado o Do-While para verificar se vai executar ao menos uma vez para
+        depois determinar a continuidade ou não */
+        do{
+            //continuarTentando e tentativasRealizadas precisam sofrer alteração para evitar loop infinito
+            //Se ele tiver atendendido não vai continuar tentando
+            atendeu = atender();
+            continuarTentando = !atendeu;
+            if(continuarTentando){
+                tentativasRealizadas++;
+            }else{
+                System.out.println("Contato realizado com sucesso");
+            }
+        }
+        //Após essa condição ele vai tentar novamente
+        while(continuarTentando && tentativasRealizadas<3);
+
+        if(atendeu){
+            System.out.println("Conseguimos contato com " + candidato + " na " + tentativasRealizadas + " tentativa");
+        }else{
+            System.out.println("Não conseguimos contato com " + candidato + ", número máximo de tentativas "
+                    + tentativasRealizadas + " realizada");
         }
     }
     //Método auxiliar
