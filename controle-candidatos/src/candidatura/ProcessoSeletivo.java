@@ -7,9 +7,43 @@ public class ProcessoSeletivo {
          Scanner sc = new Scanner(System.in);
         System.out.println("Processo seletivo");
 
-        System.out.println("Qual a sua pretenção de salário? ");
-        double salarioPretendido = sc.nextDouble();
-        analisarCandidato(salarioPretendido);
+        selecaoCandidatos();
+
+    }
+    static void selecaoCandidatos(){
+        Scanner sc = new Scanner(System.in);
+
+        //lista dos candidatos
+        String [] candidatos = {"Antonio", "Jose", "Marcia","Monica", "Pablo", "Michele", "Savio","Daniela","Cleiton", "Gabriela"};
+
+        //Quantida de candidatos selecionados até o momento
+        int candidatosSelecionados = 0;
+        //candidatosAtual será o índice do nosso array
+        int candidatosAtual=0;
+        double salarioBase = 2000;
+
+        /*Serão selecionados apenas 5 candidatos, mas só será selecionado enquanto
+         tiver pessoas para buscar na lista de candidatos */
+        while(candidatosSelecionados < 5 && candidatosAtual < candidatos.length){
+
+            //verificação de cada candidato
+            String candidato = candidatos[candidatosAtual];
+
+            System.out.println("Qual a sua pretenção de salário? ");
+            double salarioPretendido = sc.nextDouble();
+
+            System.out.println("O candidato " + candidato + " Solicitou este valor de salário " + salarioPretendido);
+
+            if (salarioBase>=salarioPretendido){
+                System.out.println("O candidato " + candidato + " foi selecionado para a vaga");
+                //Selecionando o candidato
+                candidatosSelecionados++;
+            }else{
+                System.out.println("O candidato " + candidato + " não foi selecionado para a vaga");
+            }
+            //Pulando para o próximo candidato após a verificação
+            candidatosAtual++;
+        }
     }
     static void analisarCandidato(double salarioPretendido){
         double salarioBase = 2000.0;
