@@ -5,10 +5,20 @@ import java.util.Scanner;
 public class ProcessoSeletivo {
     public static void main(String[] args) {
          Scanner sc = new Scanner(System.in);
-        System.out.println("Processo seletivo");
+        imprimirSelecionados();
 
-        selecaoCandidatos();
+    }
+    static void imprimirSelecionados(){
+        String [] candidatos = {"Antonio", "Jose", "Marcia","Monica", "Pablo"};
+        System.out.println("Imprimindo a lista de candidatos informando o índice do elemento");
 
+        for (int indice=0; indice < candidatos.length; indice++){
+            System.out.println("O candidato de número " + (indice+1) + " é o " + candidatos[indice]);
+        }
+        System.out.println("Forma abreviada de iteração for each");
+        for (String candidato: candidatos){
+            System.out.println("O candidato selecionado foi " + candidato);
+        }
     }
     static void selecaoCandidatos(){
         Scanner sc = new Scanner(System.in);
